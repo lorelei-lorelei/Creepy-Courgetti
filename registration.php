@@ -3,7 +3,7 @@ include 'common.php';
 include 'functions.php';
 
 if(!empty($_POST)){
-  create_user($_POST['email'], $_POST['password']);
+  create_user($gPDO, $_POST['fullname'], $_POST['username'], $_POST['email'], $_POST['password']);
 }
 ?>
 
@@ -18,6 +18,8 @@ if(!empty($_POST)){
     <p>Welcome to Creepy Courgetti!</p>
     <p>Please complete the form below to register as a new author.</p>
     <form action="" method="post">
+      <label for="fullname">Full Name:</label>
+        <input name="fullname" type="text">
       <label for="username">Username:</label>
         <input name="username" type="text">
       <label for="email">Email:</label>
