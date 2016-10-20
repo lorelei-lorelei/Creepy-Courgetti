@@ -1,14 +1,15 @@
 <?php
 include 'common.php';
+include 'functions.php';
 
-if(empty($_SESSION)) {
-    header('Location: /blog/login.php');
+if(!empty($_SESSION)) {
+    header('Location: /admin.php');
     die();
 }
 
 if(!empty($_POST)) {
     insert_article($_POST['body'], $_SESSION['id']);
-    header('Location: /blog/index.php');
+    header('Location: /index.php');
 }
 
 ?>
