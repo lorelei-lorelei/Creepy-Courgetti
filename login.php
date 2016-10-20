@@ -3,8 +3,8 @@ include 'common.php';
 include 'functions.php';
 
 if(!empty($_POST)) {
-    login($gPDO, $_POST['email'], $_POST['password']);
-  //  header('Location: /blog/admin.php'); <- doesn't exist yet so commented out
+    login($gPDO, $_POST['username'], $_POST['password']);
+  header('Location: /index.php');
 }
 ?>
 
@@ -17,8 +17,8 @@ if(!empty($_POST)) {
   </head>
   <body>
     <form action="" method="post">
-      <label for="email">Email:</label>
-        <input name="email" type="text">
+      <label for="username">Username:</label>
+        <input name="username" type="text">
       <label for="password">Password:</label>
         <input name="password" type="password">
       <button type="submit">Login</button>
