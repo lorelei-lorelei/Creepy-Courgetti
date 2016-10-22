@@ -27,9 +27,9 @@
                     <li><a href="index.php">home</a></li>
                         <?php foreach (ARTICLE_CATEGORIES as $id => $category) :?>
                             <li><a href="?category=<?= $id; ?>"><?= $category; ?></a>
-                            <li><a href="search.php">search</a></li>
                         <?php endforeach; ?></a></li>
                         <li><a href="about.php">about us</a></li>
+                        <li><a href="search.php">search</a></li>
                         <li><?php if (!empty($_SESSION[USER_SESSION])): ?>
                               <a href="post.php">post</a>
                               <a href="admin.php">admin</a>
