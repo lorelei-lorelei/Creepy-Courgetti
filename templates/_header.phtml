@@ -1,0 +1,84 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+    <title>creepycourgetti</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="og:description" content="Who doesn't like a good scary story? Not us -- we love them. Take your pick of a cornucopia of creepy right here.">
+    <meta name="description" content="Who doesn't like a good scary story? Not us -- we love them. Take your pick of a cornucopia of creepy right here.">
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" type="text/css" href="css/style.css" />
+</head>
+
+<body>
+    <div id="main">
+        <header>
+            <div id="logo">
+                <div id="logo_text">
+                    <!-- class="logo_colour", allows you to change the colour of the text -->
+                    <h1><a href="index.php">creepy<span class="logo_colour">courgetti</span></a></h1>
+                    <p>low-carb scares to bloat you with fear</p>
+                </div>
+            </div>
+            <nav>
+                <ul class="sf-menu" id="nav">
+                    <li><a href="index.php">home</a></li>
+                        <?php foreach (ARTICLE_CATEGORIES as $id => $category) :?>
+                            <li><a href="?category=<?= $id; ?>"><?= $category; ?></a>
+                            <li><a href="search.php">search</a></li>
+                        <?php endforeach; ?></a></li>
+                        <li><a href="about.php">about us</a></li>
+                        <li><?php if (!empty($_SESSION[USER_SESSION])): ?>
+                              <a href="post.php">post</a>
+                              <a href="admin.php">admin</a>
+                              <a href="login.php?logout=true">logout</a>
+                            <?php else: ?>
+                              <a href="login.php">login</a>
+                            <?php endif; ?>
+                          </nav></a></li>
+                </ul>
+            </nav>
+  <script type="text/javascript">
+
+            /* var make_button_active = function()
+            {
+              //Get item siblings
+              var siblings =($(this).siblings());
+
+
+              //Remove active class on all buttons
+              siblings.each(function (index)
+                {
+                  $(this).removeClass('selected');
+                    console.log("munnah munnah");
+                }
+              )
+
+              //Add the clicked button class
+              $(this).addClass('selected');
+            } */
+
+            //Attach events to menu
+
+
+            $(document).ready(
+
+              function()
+              {
+                var strValue = document.location.href;
+                strValue = strValue.replace('http://localhost','');
+                $('a[href="'+strValue+'"]').addClass('selected');
+                // console.log(strValue);
+
+              }
+
+            )
+
+            </script>
+        </header>
+</header>
+
+<div id="site_content">
+    <div class="content">
