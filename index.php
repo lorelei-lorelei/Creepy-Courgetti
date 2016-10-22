@@ -1,17 +1,18 @@
 <?php
 include 'common.php';
-include 'functions.php';
 
-$results = get_latest_articles($gPDO);
-?>
+$sql = "SELECT * FROM articles, users
+            WHERE users.id = articles.author";
 
-<html>
-<head><title>Creepy Courgetti - Home</title></head>
-<body>
-    <h1>Creepy Courgetti</h1>
-    <p><a href="/admin.php">Submit new story!</a></p>
-<?php foreach($results as $results): ?>
-    <p><?= $result['story']; ?> , by  <?= $result['username']; ?></p>
-<?php endforeach; ?>
-</body>
-</html>
+if(isset($_GET['category'])) {
+  $sql .= " AND articles.category = :category";
+}
+
+$sql .= " ORDER BY date DESC";
+
+$stmt = $gPDO->prepare($sql);
+$stmt->execute($_GET);
+
+display_page('index', [
+  'articles' => $stmt->fetchAll()
+]);

@@ -1,25 +1,22 @@
 <?php
 include 'common.php';
-include 'functions.php';
+include 'error.php';
 
-if(!empty($_POST)) {
-    login($gPDO, $_POST['username'], $_POST['password']);
-  header('Location: /index.php');
+$sql = "SELECT * FROM users WHERE username = :username";
+
+switch($_SERVER['REQUEST_METHOD']) {
+  case 'GET':
+    display_page('login');
+    break;
+
+  case 'POST':
+    $stmt = $gPDO->prepare($sql);
+    $stmt->execute(['username' => $_POST['username']]);
+
+    perform_login($stmt->fetch());
+    break;
 }
-?>
 
-<HTML>
-  <meta charset='utf-8'>
-  <head>
-    <title>Creepy Courgetti - Login</title>
-    <h1>Creepy Courgetti - Login</h1>
-    <h3>Low in carbs; bloated with fear</h3>
-  </head>
-  <body>
-    <form action="" method="post">
-      <label for="username">Username:</label>
-        <input name="username" type="text">
-      <label for="password">Password:</label>
-        <input name="password" type="password">
-      <button type="submit">Login</button>
-    </form>
+if(isset($_GET['logout'])) {
+  session_destroy();
+}
