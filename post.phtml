@@ -1,0 +1,16 @@
+
+<form action="/post.php" method="post">
+    <div class="form_settings">
+        <div class="input-wrapper"><label for="title">Title</label><input type="text" name="title" id="title" /></div>
+
+        <div class="input-wrapper"><label for="category">Category</label><select name="category" id="category">
+							<?php foreach (ARTICLE_CATEGORIES as $id => $category): ?>
+								<option value="<?= $id; ?>"><?= $category; ?></option>
+							<?php endforeach; ?>
+						</select></div>
+
+				<div class="input-wrapper"><label for="article">Your story</label><textarea rows="20" cols="50" name="article" id="article"></textarea>
+				</div>
+        <p style="padding-top: 15px; padding-bottom: 100px"><label>&nbsp;</label><input class="submit" type="submit" name="button" value="Post" /></p><br />
+    </div>
+</form>
