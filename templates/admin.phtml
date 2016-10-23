@@ -4,8 +4,8 @@
 	<ul>
 		<?php foreach ($vars['articles'] as $article): ?>
 		<li> <?= $article['title']; ?>
-			[ <a href="/post.php?id=<?= $article['id']; ?>">edit</a> |
-			<a href="/admin.php?action=delarticle&id=<?= $article['id']; ?>">delete</a> ]
+			[ <a href="post.php?id=<?= $article['id']; ?>">edit</a> |
+			<a href="admin.php?action=delarticle&id=<?= $article['id']; ?>">delete</a> ]
 		</li>
 	<?php endforeach; ?>
 	</ul>
@@ -14,13 +14,13 @@
 <h1>Users</h1>
 <ul>
 	<?php foreach ($vars['users'] as $user): ?>
-		<li><?= $user['username']; ?> (<?= USER_ROLES[$user['role']]; ?>) [<a href="/admin.php?action=deluser&id=<?= $user['id']; ?>">delete</a>]</li>
+		<li><?= $user['username']; ?> (<?= USER_ROLES[$user['role']]; ?>) [<a href="admin.php?action=deluser&id=<?= $user['id']; ?>">delete</a>]</li>
 	<?php endforeach; ?>
 
 </ul>
 
 <h1>New User</h1>
-<form action="/admin.php?action=newuser" method="post">
+<form action="admin.php?action=newuser" method="post">
 		<div class="form_settings">
 	<div class="input-wrapper"><label for="username">Username</label><input type="text" name="username" id="username" /></div>
 	</div>
