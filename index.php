@@ -1,7 +1,7 @@
 <?php
 include 'common.php';
 
-$sql = "SELECT articles.id, articles.title, users.fullname FROM articles, users
+$sql = "SELECT articles.id, articles.title, articles.body, users.fullname FROM articles, users
             WHERE users.id = articles.author";
 
 if(isset($_GET['category'])) {

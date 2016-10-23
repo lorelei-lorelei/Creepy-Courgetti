@@ -6,8 +6,10 @@
             </h2>
             <div class="list-post-date">
               <time><?= date('d M Y'); ?></time> by <?= $article['fullname']; ?>
-          
-
+            </div>
+            <br>
+            <div class="post-text">
+                <?= substr($article['body'],0,200).'...' ?>
             </div>
           </div>
         <?php endforeach; ?>
