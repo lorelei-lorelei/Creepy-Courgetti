@@ -46,7 +46,7 @@ function login($pdo, $username, $email, $password)
     if (!empty($user) && password_verify($password, $user['password'])) {
         $_SESSION = $user;
 
-        header('Location: /admin.php');
+        header('Location: admin.php');
     }
 }
 
