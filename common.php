@@ -5,7 +5,7 @@ session_start();
 //DATABASE
 
 //global
-$gPDO = new PDO('mysql://host=localhost;dbname=blog', 'root', '');
+$gPDO = new PDO('mysql://host=127.0.0.1;dbname=blog', 'root', '');
 $gPDO->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
 //ERROR HANDLER
@@ -17,7 +17,9 @@ set_exception_handler(function ($e) {
 const DEFAULT_ARTICLE_ID = 1; //show this article if none selected
 
 const ARTICLE_CATEGORIES = [
-  1 => 'fact or fiction', 'short and sweet', 'just creepy',
+  1 => 'fact or fiction',
+  2 => 'short and sweet',
+  3 => 'just creepy',
 ];
 
 //TEMPLATES
