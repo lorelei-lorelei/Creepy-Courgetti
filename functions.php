@@ -50,21 +50,6 @@ function login($pdo, $username, $email, $password)
     }
 }
 
-function display_page($page, array $vars = [])
-{
-    foreach (['_header', $page, '_footer'] as $template) {
-        include TEMPLATE_DIR.DIRECTORY_SEPARATOR.$template.TEMPLATE_EXT;
-    }
-}
-
-function ensure_login()
-{
-    if (empty($_SESSION[USER_SESSION])) {
-        header('Location: login.php');
-        exit();
-    }
-}
-
 function perform_login($user)
 {
     if (empty($user) || !password_verify($_POST['password'], $user['password'])) {

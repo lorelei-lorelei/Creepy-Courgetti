@@ -1,6 +1,5 @@
 <?php
-
-include 'common.php';
+include 'functions.php';
 include 'error.php';
 
 display_page('registration');
