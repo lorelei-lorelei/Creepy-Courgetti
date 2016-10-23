@@ -34,9 +34,11 @@ function get_user($pdo, $email)
 function create_user($pdo, $fullname, $username, $email, $password)
 {
     $password = password_hash($password, PASSWORD_DEFAULT);
-    $prepQ = $pdo->prepare('INSERT INTO users (fullname, username, email, password) VALUES(?, ?, ?, ?)');
+    $prepQ = $pdo->prepare('INSERT INTO users (fullname, username, email, password, role) VALUES(?, ?, ?, ?, 2)');
+    $prepQ->execute([$fullname, $username, $email, $password]);
 
-    return $prepQ->execute([$fullname, $username, $email, $password]);
+    header('Location: index.php');
+    print_r('hello');
 }
 
 function login($pdo, $username, $email, $password)
