@@ -3,6 +3,7 @@ include 'common.php';
 
 function perform_login($user)
 {
+  print_r($user);
     if (empty($user) || !password_verify($_POST['password'], $user['password'])) {
         throw new Exception('Sorry, your login credentials are not found.');
     }
