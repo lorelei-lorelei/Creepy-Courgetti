@@ -18,24 +18,3 @@
 	<?php endforeach; ?>
 
 </ul>
-
-<h1>New User</h1>
-<form action="admin.php?action=newuser" method="post">
-		<div class="form_settings">
-	<div class="input-wrapper"><label for="username">Username</label><input type="text" name="username" id="username" /></div>
-	</div>
-
-	<div class="form_settings">
-	  <div class="input-wrapper"><label for="password">Password</label><input type="password" name="password" id="password" /></div></div>
-
-	<div class="form_settings">
-		<div class="input-wrapper"><label for="role">Role</label>
-		<select name="role" id="role">
-			<?php foreach (USER_ROLES as $id => $role): ?>
-			<option value="<?= $id; ?>"><?= $role; ?></option>
-		<?php endforeach; ?>
-		</select>
-
-		<p style="padding-top: 15px; padding-bottom: 10px"><label>&nbsp;</label><input class="submit" type="submit" name="button" value="New User" /></p><br />
-	</div>
-</form>

@@ -37,8 +37,6 @@ function create_user($pdo, $fullname, $username, $email, $password)
     $prepQ = $pdo->prepare('INSERT INTO users (fullname, username, email, password, role) VALUES(?, ?, ?, ?, 2)');
     $prepQ->execute([$fullname, $username, $email, $password]);
 
-    header('Location: index.php');
-    print_r('hello');
 }
 
 function login($pdo, $username, $email, $password)
