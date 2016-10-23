@@ -31,6 +31,7 @@ switch ($_GET['action']) {
   case 'delarticle';
     $stmt = $gPDO->prepare($dasql);
     $stmt->execute(['id' => $_GET['id']]);
+    display_page('delete');
   break;
 
   default:
