@@ -4,16 +4,6 @@ set_exception_handler(function ($e) {
   display_page('error', ['message' => $e->getMessage()]);
 });
 
-function perform_login($user) {
-  if(empty($user) || !password_verify($_POST['password'], $user['password'])) {
-    throw new Exception("Username/Password does not exist. Please try again.");
-  }
-
-  $_SESSION[USER_SESSION] = $user;
-  header("Location: /post.php");
-  exit();
-}
-
 //Invalid email error
 function check_email($email){
 if(filter_input(INPUT_GET, "email", FILTER_VALIDATE_EMAIL)==0){
