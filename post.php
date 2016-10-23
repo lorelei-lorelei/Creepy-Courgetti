@@ -5,7 +5,6 @@ include 'error.php';
 ensure_login();
 
 function post_story($story){
-  print_r($story);
   global $gPDO;
   $add_story = $gPDO->prepare("INSERT INTO articles(title, body, author, category, date)
    VALUES(:title, :body, :author, :category, unix_timestamp())");
