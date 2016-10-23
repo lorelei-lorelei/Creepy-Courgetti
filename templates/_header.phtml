@@ -40,45 +40,14 @@
 
                </ul>
             </nav>
-  <script type="text/javascript">
-
-            /* var make_button_active = function()
-            {
-              //Get item siblings
-              var siblings =($(this).siblings());
-
-
-              //Remove active class on all buttons
-              siblings.each(function (index)
-                {
-                  $(this).removeClass('selected');
-                    console.log("munnah munnah");
-                }
-              )
-
-              //Add the clicked button class
-              $(this).addClass('selected');
-            } */
-
-            //Attach events to menu
-
-
-            $(document).ready(
-
-              function()
-              {
-                var strValue = document.location.href;
-                strValue = strValue.replace('http://localhost','');
-                $('a[href="'+strValue+'"]').addClass('selected');
-                // console.log(strValue);
-
-              }
-
-            )
-
+            <script type="text/javascript">
+                $( document ).ready(function() {
+                  var strValue = document.location.href;
+                  strValue = strValue.replace('http://localhost/','');
+                  $('a[href="'+strValue+'"]').addClass('selected');
+                });
             </script>
         </header>
-</header>
 
 <div id="site_content">
     <div class="content">
