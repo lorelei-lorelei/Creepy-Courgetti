@@ -1,6 +1,13 @@
 <?php
 include 'common.php';
 
+if(isset($_GET['logout'])) {
+  session_destroy();
+  header('Location: login.php');
+
+  exit();
+}
+
 function perform_login($user)
 {
   print_r($user);
@@ -26,8 +33,4 @@ switch($_SERVER['REQUEST_METHOD']) {
 
   perform_login($stmt->fetch());
     break;
-}
-
-if(isset($_GET['logout'])) {
-  session_destroy();
 }

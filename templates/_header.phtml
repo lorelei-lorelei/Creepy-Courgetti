@@ -30,15 +30,15 @@
                         <?php endforeach; ?></a></li>
                         <li><a href="about.php">about us</a></li>
                         <li><a href="search.php">search</a></li>
-                        <li><?php if (!empty($_SESSION[USER_SESSION])): ?>
-                              <a href="post.php">post</a>
-                              <a href="admin.php">admin</a>
-                              <a href="login.php?logout=true">logout</a>
+                        <?php if (!empty($_SESSION[USER_SESSION])): ?>
+                              <li><a href="post.php">post</a></li>
+                              <li><a href="admin.php">admin</a></li>
+                              <li><a href="login.php?logout=true">logout</a></li>
                             <?php else: ?>
-                              <a href="login.php">login</a>
+                              <li><a href="login.php">login</a></li>
                             <?php endif; ?>
-                          </nav></a></li>
-                </ul>
+
+               </ul>
             </nav>
   <script type="text/javascript">
 
