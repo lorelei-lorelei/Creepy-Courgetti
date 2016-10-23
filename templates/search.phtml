@@ -15,7 +15,7 @@
   $find_page=$vars['results'];
   while($row = $find_page->fetch(PDO::FETCH_ASSOC))
  {
-   echo "<a href='id'>$row</a><br />";
+   echo "Search results:" ."<a href='article.php?id=".$row['id']."'>".$row['title']."</a><br />";
  }
    $count = $find_page->rowCount();
    echo "Search results found:" . $count . "<br />";
