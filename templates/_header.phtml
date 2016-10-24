@@ -28,27 +28,27 @@
             <nav>
                 <ul class="sf-menu" id="navtop">
                 <?php foreach (ARTICLE_CATEGORIES as $id => $category) :?>
-                    <li><a href="/index.php?category=<?= $id; ?>"><?= $category; ?></a>
+                    <li><a href="index.php?category=<?= $id; ?>"><?= $category; ?></a>
                 <?php endforeach; ?></a></li>
               </ul>
               <p>&nbsp;</p>
                 <ul class="sf-menu" id="navbottom">
-                  <li><a href="/index.php">home</a></li>
-                        <li><a href="/about.php">about us</a></li>
-                        <li><a href="/search.php">search</a></li>
+                  <li><a href="index.php">home</a></li>
+                        <li><a href="about.php">about us</a></li>
+                        <li><a href="search.php">search</a></li>
                         <?php if (!empty($_SESSION[USER_SESSION])): ?>
-                              <li><a href="/post.php">post</a></li>
-                              <li><a href="/admin.php">admin</a></li>
-                              <li><a href="/login.php?logout=true">logout</a></li>
+                              <li><a href="post.php">post</a></li>
+                              <li><a href="admin.php">admin</a></li>
+                              <li><a href="login.php?logout=true">logout</a></li>
                             <?php else: ?>
-                              <li><a href="/login.php">login</a></li>
+                              <li><a href="login.php">login</a></li>
                             <?php endif; ?>
                </ul>
             </nav>
 
             <script type="text/javascript">
                 $( document ).ready(function() {
-                  var strValue = location.pathname + location.search;
+                  var strValue = window.location.pathname.match(/[^\/]+$/)[0] + location.search;
                   $('a[href="'+strValue+'"]').addClass('selected');
                 });
             </script>
