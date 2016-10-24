@@ -3,7 +3,7 @@ include 'common.php';
 
 if(isset($_GET['logout'])) {
   session_destroy();
-  header('Location: login.php');
+  display_page('logout_confirm');
 
   exit();
 }
