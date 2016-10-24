@@ -20,7 +20,7 @@
             <div id="logo">
                 <div id="logo_text">
                     <!-- class="logo_colour", allows you to change the colour of the text -->
-                    <h1><a href="index.php">creepy<span class="logo_colour">courgetti</span></a></h1>
+                    <h1><a href="/index.php">creepy<span class="logo_colour">courgetti</span></a></h1>
                     <p>low-carb scares to bloat you with fear</p>
                 </div>
             </div>
@@ -28,65 +28,29 @@
             <nav>
                 <ul class="sf-menu" id="navtop">
                 <?php foreach (ARTICLE_CATEGORIES as $id => $category) :?>
-                    <li><a href="index.php?category=<?= $id; ?>"><?= $category; ?></a>
+                    <li><a href="/index.php?category=<?= $id; ?>"><?= $category; ?></a>
                 <?php endforeach; ?></a></li>
               </ul>
               <p>&nbsp;</p>
                 <ul class="sf-menu" id="navbottom">
-                  <li><a href="index.php">home</a></li>
-                        <li><a href="about.php">about us</a></li>
-                        <li><a href="search.php">search</a></li>
+                  <li><a href="/index.php">home</a></li>
+                        <li><a href="/about.php">about us</a></li>
+                        <li><a href="/search.php">search</a></li>
                         <?php if (!empty($_SESSION[USER_SESSION])): ?>
-                              <li><a href="post.php">post</a></li>
-                              <li><a href="admin.php">admin</a></li>
-                              <li><a href="login.php?logout=true">logout</a></li>
+                              <li><a href="/post.php">post</a></li>
+                              <li><a href="/admin.php">admin</a></li>
+                              <li><a href="/login.php?logout=true">logout</a></li>
                             <?php else: ?>
-                              <li><a href="login.php">login</a></li>
+                              <li><a href="/login.php">login</a></li>
                             <?php endif; ?>
                </ul>
             </nav>
 
-  <script type="text/javascript">
-
-            /* var make_button_active = function()
-            {
-              //Get item siblings
-              var siblings =($(this).siblings());
-
-
-              //Remove active class on all buttons
-              siblings.each(function (index)
-                {
-                  $(this).removeClass('selected');
-                    console.log("munnah munnah");
-                }
-              )
-
-              //Add the clicked button class
-              $(this).addClass('selected');
-            } */
-
-            //Attach events to menu
-
-
-
-            $(document).ready(
-
-              function()
-              {
-                var strValue = document.location.href;
-
-                // need some code to determine if the current location contains 'category'
-                // and if it does then remove http://127.0.0.1 without the / on the end
-
-                strValue = strValue.replace('http://127.0.0.1/','');
-                $('a[href="'+strValue+'"]').addClass('selected');
-                console.log(strValue);
-
-              }
-
-            )
-
+            <script type="text/javascript">
+                $( document ).ready(function() {
+                  var strValue = location.pathname + location.search;
+                  $('a[href="'+strValue+'"]').addClass('selected');
+                });
             </script>
         </header>
 </header>
