@@ -1,0 +1,15 @@
+
+        <?php foreach ($vars['articles'] as $article): ?>
+          <div class="list-item">
+            <h2 class="list-post-title">
+              <a href="article.php?id=<?= $article['id'];?>"><?= $article['title'];?></a>
+            </h2>
+            <div class="list-post-date">
+              <time><?= date('d M Y'); ?></time> by <?= $article['fullname']; ?>
+            </div>
+            <br>
+            <div class="post-text">
+                <?= substr($article['body'],0,200).'...' ?>
+            </div>
+          </div>
+        <?php endforeach; ?>

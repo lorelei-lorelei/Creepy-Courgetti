@@ -1,0 +1,31 @@
+<!-- <!DOCTYPE HTML>
+<html>
+<head>
+<title>Search Box</title>
+
+</head>
+<body>
+	 HTML for SEARCH BAR -->
+  <div id="site_content">
+      <div class="content">
+
+<p style="padding: 20px"></p>
+<form action="" method="POST">
+  <div class="form_settings">
+      <div class="input-wrapper"><label for="search">Search</label><input type ="text" name="search" id="search" placeholder="find a creepycourgetti" value=<?echo isset($_POST['search']) ? ($_POST['search']): ""?>>
+</form>
+
+<p style="padding: 20px"></p>
+    <div class="results">
+<?if(isset($vars['results'])){
+  $find_page=$vars['results'];
+  while($row = $find_page->fetch(PDO::FETCH_ASSOC))
+ {
+   echo "<a href='article.php?id=".$row['id']."'>".$row['title']."</a><br /><br />";
+ }
+   $count = $find_page->rowCount();
+   echo "Search results found:  " . $count . "<br />";
+}?>
+
+</div>
+</div>
