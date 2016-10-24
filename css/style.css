@@ -20,7 +20,7 @@ html {
 }
 
 /* tell the browser to render HTML 5 elements as block */
-article, aside, figure, footer, header, hgroup, nav, section {
+article, aside, figure, footer, header, hgroup, nav, navtop, navbottom, section {
   display:block;
 }
 
@@ -131,7 +131,7 @@ ol li {
   margin: 20px auto;
 }
 
-#main, nav, #container, #logo, #site_content, footer {
+#main, nav, navtop, navbottom, #container, #logo, #site_content, footer {
   margin-left: auto;
   margin-right: auto;
 }
@@ -190,7 +190,23 @@ nav {
   height: 44px;
   width: 600px;
   float: right;
-  margin: 75px auto 0 auto;
+  margin: 35px auto 0 auto;
+  color: #222;
+}
+
+navtop {
+  height: 44px;
+  width: 600px;
+  float: right;
+  margin: 35px auto 0 auto;
+  color: #222;
+}
+
+navbottom {
+  height: 44px;
+  width: 600px;
+  float: right;
+  margin: 50px auto 0 auto;
   color: #222;
 }
 
@@ -281,35 +297,31 @@ content-post {
   margin: 0 0 15px 0;
   float: left;
   font-size: 120%;
-  padding: 25px 0 0 0;
 }
 
-post-title {
+.post-title {
   font: 180% arial, sans-serif;
   text-align: left;
   width: 650px;
   margin: 0 0 15px 0;
   float: left;
   font-size: 120%;
-  padding: 25px 0 0 0;
 }
 
  .post-title h1 {
   font: 180% arial, sans-serif;
   text-align: left;
   width: 650px;
-  margin: 0 0 15px 0;
+  margin: 0 0 0 0;
   float: left;
-  padding: 25px 0 0 0;
 }
 
-post-date {
-  font: 120% arial, sans-serif;
+.post-date {
+  font: 110% arial, sans-serif;
   text-align: left;
   width: 650px;
-  margin: 0 0 15px 0;
   float: left;
-  padding: 25px 0 0 0;
+  color: #FFF;
 }
 
 post-text {
@@ -371,6 +383,7 @@ footer a:hover {
 
 /* NEW SELECTOR */
 .form_settings label{
+    font: 140% 'News Cycle', arial, sans-serif;
     display: inline-block;
     width: 190px;
     vertical-align: top;
@@ -394,7 +407,7 @@ footer a:hover {
   font: 140% 'Yanone Kaffeesatz', arial, sans-serif;
   border: 0;
   width: 99px;
-  margin: 0 0 0 212px;
+  margin: 0 0 0 550px;
   height: 33px;
   padding: 2px 0 3px 0;
   cursor: pointer;
@@ -474,8 +487,27 @@ table tr th, table tr td {
   font: 120% 'News Cycle', arial, sans-serif;
   background: #222;
   color: #09d4ff;
-  padding: 5px 4px;
+  padding: 10px 0px;
   text-align: left;
+  vertical-align: top;
+}
+
+.gitdesc {
+  font: 100% 'News Cycle', arial, sans-serif;
+  background: #222;
+  color: #FFF;
+  padding: 10px 0px;
+  text-align: left;
+  vertical-align: top;
+}
+
+.results {
+  font: 120% 'News Cycle', arial, sans-serif;
+  background: #222;
+  color: #FFF;
+  padding: 5px 0px;
+  text-align: left;
+  vertical-align: top;
 }
 
 table tr td {
@@ -565,17 +597,16 @@ ul.sf-menu ul ul ul li:hover ul ul,ul.sf-menu ul ul ul li:focus ul ul,ul.sf-menu
 }
 
 /* Theming the menu */
-ul#nav {
+ul#nav, ul#navtop, ul#navbottom {
   float: right;
 }
 
-ul#nav ul {
+ul#nav ul, ul#navtop ul, ul#navbottom ul {
   background: #09D4FF;
   margin-top: 5px;
-  padding-bottom: 15px;
 }
 
-ul#nav li a {
+ul#nav li a, ul#navtop li a, ul#navbottom li a {
   padding:7px 0px 6px 15px;
   font: 170% 'Yanone Kaffeesatz', arial, sans-serif;
   text-shadow: 1px 1px #000;
@@ -589,7 +620,17 @@ ul#nav li a:hover, ul#nav li a:focus, ul#nav li.selected a, ul#nav a.selected, u
   text-shadow: none;
 }
 
-ul#nav ul li a {
+ul#navtop li a:hover, ul#navtop li a:focus, ul#navtop li.selected a, ul#navtop a.selected, ul#navtop li.selected a:hover, ul#navtop li.selected a:focus {
+  color: #09D4FF;
+  text-shadow: none;
+}
+
+ul#navbottom li a:hover, ul#navbottom li a:focus, ul#navbottom li.selected a, ul#navbottom a.selected, ul#navbottom li.selected a:hover, ul#navbottom li.selected a:focus {
+  color: #09D4FF;
+  text-shadow: none;
+}
+
+ul#nav ul li a, ul#navtop ul li a, ul#navbottom ul li a {
   color: #FFF;
   text-shadow: none;
 }
@@ -599,7 +640,15 @@ ul#nav ul li a:hover, ul#nav ul li a:active {
  margin-right: 2px;
 }
 
+ul#navtop ul li a:hover, ul#navtop ul li a:active {
+ color: #222;
+ margin-right: 2px;
+}
 
+ul#navbottom ul li a:hover, ul#navbottom ul li a:active {
+ color: #222;
+ margin-right: 2px;
+}
 
 /* Image Transitions */
 ul#images {
