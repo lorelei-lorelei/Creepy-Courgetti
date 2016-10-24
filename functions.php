@@ -21,6 +21,8 @@ function insert_article($pdo, $body, $author_id)
 
 if (!empty($_POST)) {
     $checkemail = filter_var($_POST['email'], FILTER_SANITIZE_STRING);
+    $checkusername = filter_var($_POST['username'], FILTER_SANITIZE_STRING);
+    $checkfullname = filter_var($_POST['fullname'], FILTER_SANITIZE_STRING);
 }
 
 function get_user($pdo, $email)
