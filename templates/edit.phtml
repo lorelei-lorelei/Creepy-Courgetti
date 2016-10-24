@@ -1,0 +1,23 @@
+	<p style="padding: 20px"></p>
+	<form action="post.php" method="post" style="width: 100%">
+		<div class="form_settings">
+		<div class="input-wrapper"><label for="title">Title </label>
+			<input name="title" type="text" value="<?= $vars['article']['title']; ?>"/></div>
+
+	<div class="input-wrapper"><label for="title">Category </label>
+		<select name="category">
+			<option value="<?= $vars['article']['category']?>" selected="true"><?= ARTICLE_CATEGORIES[$vars['article']['category']]; ?></option>
+			<?php foreach (ARTICLE_CATEGORIES as $id => $category): ?>
+				<option value="<?= $id; ?>"><?= $category; ?></option>
+			<?php endforeach; ?>
+		</select>
+	</div>
+
+<div class="input-wrapper"><label for="body">Article </label>
+	<textarea name="body" col="50" rows="20" style="width: 100%">
+		<?= $vars['article']['body']; ?>
+	</textarea>
+	</div>
+<p style="padding-top: 15px; padding-bottom: 10px; width: 100%">
+	<input class="submit" type="submit" value="Post" /></p><br />
+</form>
