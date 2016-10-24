@@ -4,6 +4,8 @@
 <head>
 
     <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+    <script src="//cdn.tinymce.com/4/tinymce.min.js"></script>
+    <script>tinymce.init({ selector:'textarea' });</script>
     <title>creepycourgetti</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="og:description" content="Who doesn't like a good scary story? Not us -- we love them. Take your pick of a cornucopia of creepy right here.">
@@ -22,12 +24,16 @@
                     <p>low-carb scares to bloat you with fear</p>
                 </div>
             </div>
+
             <nav>
-                <ul class="sf-menu" id="nav">
-                    <li><a href="index.php">home</a></li>
-                        <?php foreach (ARTICLE_CATEGORIES as $id => $category) :?>
-                            <li><a href="index.php?category=<?= $id; ?>"><?= $category; ?></a>
-                        <?php endforeach; ?></a></li>
+                <ul class="sf-menu" id="navtop">
+                <?php foreach (ARTICLE_CATEGORIES as $id => $category) :?>
+                    <li><a href="/?category=<?= $id; ?>"><?= $category; ?></a>
+                <?php endforeach; ?></a></li>
+              </ul>
+              <p>&nbsp;</p>
+                <ul class="sf-menu" id="navbottom">
+                  <li><a href="index.php">home</a></li>
                         <li><a href="about.php">about us</a></li>
                         <li><a href="search.php">search</a></li>
                         <?php if (!empty($_SESSION[USER_SESSION])): ?>
@@ -37,17 +43,53 @@
                             <?php else: ?>
                               <li><a href="login.php">login</a></li>
                             <?php endif; ?>
-
                </ul>
             </nav>
-            <script type="text/javascript">
-                $( document ).ready(function() {
-                  var strValue = document.location.href;
-                  strValue = strValue.replace('http://localhost/','');
-                  $('a[href="'+strValue+'"]').addClass('selected');
-                });
+
+  <script type="text/javascript">
+
+            /* var make_button_active = function()
+            {
+              //Get item siblings
+              var siblings =($(this).siblings());
+
+
+              //Remove active class on all buttons
+              siblings.each(function (index)
+                {
+                  $(this).removeClass('selected');
+                    console.log("munnah munnah");
+                }
+              )
+
+              //Add the clicked button class
+              $(this).addClass('selected');
+            } */
+
+            //Attach events to menu
+
+
+
+            $(document).ready(
+
+              function()
+              {
+                var strValue = document.location.href;
+
+                // need some code to determine if the current location contains 'category'
+                // and if it does then remove http://127.0.0.1 without the / on the end
+
+                strValue = strValue.replace('http://127.0.0.1/','');
+                $('a[href="'+strValue+'"]').addClass('selected');
+                console.log(strValue);
+
+              }
+
+            )
+
             </script>
         </header>
+</header>
 
 <div id="site_content">
     <div class="content">
