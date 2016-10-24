@@ -4,7 +4,7 @@
 	<ul>
 		<?php foreach ($vars['articles'] as $article): ?>
 		<li> <?= $article['title']; ?>
-			[ <a href="post.php?id=<?= $article['id']; ?>">edit</a> |
+			[ <a href="edit.php?id=<?= $article['id']; ?>">edit</a> |
 			<a href="admin.php?action=delarticle&id=<?= $article['id']; ?>">delete</a> ]
 		</li>
 	<?php endforeach; ?>
