@@ -16,7 +16,7 @@ function perform_login($user)
     }
 
     $_SESSION[USER_SESSION] = $user;
-    header('Location: post.php');
+    display_page('login_confirm');
     exit();
 }
 
